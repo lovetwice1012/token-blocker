@@ -1,0 +1,19 @@
+{
+  "name": "anti-token",
+  "version": "1.0.0",
+  "description": "Protect your server from Discord tokens.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "setup": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fireflower92/anti-token.git/"
+  },
+  "author": "fireflower92",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
