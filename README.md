@@ -8,9 +8,9 @@ NPM v8以降
 ## セットアップ
 1. config-example.jsonをconfig.jsonにリネーム
 2. config.json内のDISCORD-BOT-TOKENをBotのトークンに変更
-3. Discord Botパッケージをインストール```bash
+3. Discord Botパッケージをインストール``
    npm setup```
 
 ## botの起動
-1. コマンドを実行```bash
-npm start```
+1. コマンドを実行```
+npm start```  
