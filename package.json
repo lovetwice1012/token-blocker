@@ -1,7 +1,7 @@
 {
-  "name": "anti-token",
+  "name": "anti-troll-using-token",
   "version": "1.0.0",
-  "description": "Protect your server from Discord tokens.",
+  "description": "Protect your server and you from troll using Discord tokens.",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
@@ -9,11 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fireflower92/anti-token.git/"
+    "url": "https://github.com/lovetwice1012/anti-token.git/"
   },
-  "author": "fireflower92",
+  "author": "fireflower92 & lovetwice1012",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "child_process": "latest",
+    "discord-webhook-node": "latest"
   }
 }

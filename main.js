@@ -1,10 +1,12 @@
+// マルチプロセス
+const { exec } = require('child_process');
+
 // ファイルの読み込み
 const config = require("./config.json");
 
 // configの読み込み
-const prefix = config.prefix;
 const token = config.token;
-const logch = config.logch;
+const URL = config.reportWebHook;
 
 // Discord bot パッケージの読み込み
 const discord = require("discord.js");
@@ -14,7 +16,7 @@ const client = new discord.Client({ ws: { intents: discord.Intents.ALL } });
 // version profile
 client.on("ready", () => {
   client.user.setActivity(
-    `トークン消すよ〜`
+    `トークンを使用した荒らしに特化した対策ボットです`
   );
   console.log(`${client.user.tag} にログインしました。`)
 });
@@ -23,12 +25,10 @@ client.on("ready", () => {
 // コマンド
 client.on("message", async message => {
   // Tokenを検知して削除
-  if (message.content.match(/ODk/)) {
+  if (message.content.match(/[\w\W]{24}.[\w\W]{6}.[\w\W]{27}/)) {
     console.log(`${message.channel.name}(${message.guild.name})に${message.author.tag}(${message.author.id})がトークンを送信しました。`);
-    const report = await message.channel.send('Discord Tokenを検知しました。');
-    await report.delete({ timeout: 5000 });
-    await message.guild.owner.send(`${message.author.tag}が認証トークンを${message.channel.name}に送信しました。`)
     message.delete();
+    exec("node ./report.js "+config.URL+" "+message.author.tag+" "+message.author.avatarURL()+" "+message.channel.name)
   }
 });
 
